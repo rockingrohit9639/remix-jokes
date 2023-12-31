@@ -20,6 +20,15 @@ module.exports = {
     es6: true,
   },
 
+  settings: {
+    "import/resolver": {
+      typescript: {},
+      node: {
+        extensions: [".js", ".jsx", ".ts", ".tsx"],
+      },
+    },
+  },
+
   // Base config
   extends: ["eslint:recommended"],
 
