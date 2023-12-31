@@ -3,6 +3,7 @@ import {
   Links,
   LiveReload,
   Outlet,
+  Scripts,
   isRouteErrorResponse,
   useRouteError,
 } from "@remix-run/react";
@@ -40,6 +41,7 @@ function Document({
       </head>
       <body>
         {children}
+        <Scripts />
         <LiveReload />
       </body>
     </html>
