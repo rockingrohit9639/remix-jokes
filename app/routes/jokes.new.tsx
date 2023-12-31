@@ -1,3 +1,18 @@
+import { ActionFunctionArgs, redirect } from "@remix-run/node";
+import { db } from "~/utils/db.server";
+
+export async function action({ request }: ActionFunctionArgs) {
+  const formData = await request.formData();
+  const name = String(formData.get("name"));
+  const content = String(formData.get("content"));
+
+  const fields = { content, name };
+
+  const joke = await db.joke.create({ data: fields });
+
+  return redirect(`/jokes/${joke.id}`);
+}
+
 export default function NewJokeRoute() {
   return (
     <div>
